@@ -1,0 +1,12 @@
+void main() {
+    bool a = true;
+    bool b = false;
+    if (a and b) {
+    	print("ok");
+    } // Valid
+
+    print("middle");
+    if (a and 1) {
+   	print("bad");
+    } // Error: Logical operators require boolean operands
+}

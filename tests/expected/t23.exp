@@ -1,0 +1,16 @@
+Hello world!
+40
+30
+20
+10
+3
+30
+20
+10
+2
+20
+10
+1
+Just making sure boolean are short circuited
+Goodbye world! (proceeding to divide by zero)
+Error division by zero

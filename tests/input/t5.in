@@ -1,0 +1,21 @@
+void innerLoop(int j) {
+    if (j > 3) return; 
+    print("\tInner loop iteration: ");
+    printi(j);
+    print("\n");
+    innerLoop(j + 1); 
+}
+
+void outerLoop(int i) {
+    if (i >= 10) return; 
+    print("Outer loop iteration: ");
+    printi(i);
+    print("\n");
+
+    innerLoop(1); 
+    outerLoop(i + 1); 
+}
+
+void main() {
+    outerLoop(0); 
+}

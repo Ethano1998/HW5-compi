@@ -1,0 +1,8 @@
+void main() {
+	
+	int Int;
+	int INT;
+	byte Byte = 1b;
+	byte BYTE = 1 B;
+
+}

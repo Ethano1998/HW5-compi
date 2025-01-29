@@ -1,0 +1,29 @@
+void main() {
+    int a = 5; 
+    int b = 3;
+    int result;
+	
+    if (a > b) {
+        result = a + b;
+        print("a is greater than b, sum = ");
+        printi(result);
+    } else {
+        result = a - b;
+        print("a is less than or equal to b, difference = ");
+        printi(result);
+    }
+
+    if (a == 5 and b == 3)
+        print("a is 5 and b is 3");
+    else if (a == 10 or b == 3)
+        print("a is 10 or b is 3");
+    else
+        print("Neither condition matched");
+
+    if (a > 10)
+        print("a is greater than 10");
+    else if (a == 10)
+        print("a is exactly 10");
+    else
+        print("a is less than 10");
+}

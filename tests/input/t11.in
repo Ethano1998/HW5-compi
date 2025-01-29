@@ -1,0 +1,29 @@
+void main()
+{
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    int d = 4;
+    int e = a;
+    int f = c;
+    int g = d;
+    a = b;
+    a = c;
+    if (a == f and e == f)
+    {
+        print("bad");
+    }
+    else
+    {
+        print("good");
+    }
+    e = b;
+
+    if(c < d and (e == (d-2)))
+    {
+        print("good");
+        return;
+    }
+    print("very bad");
+
+}

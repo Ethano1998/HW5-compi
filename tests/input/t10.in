@@ -1,0 +1,15 @@
+byte foo()
+{
+    return 4b;
+}
+
+void main ()
+{
+    int pippo = 0;
+    byte foonum = foo();
+    while(pippo < foonum )
+    {
+        print("Hello world");
+        pippo = pippo + 1;
+    }
+}

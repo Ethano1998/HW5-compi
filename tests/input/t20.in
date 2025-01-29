@@ -1,0 +1,35 @@
+bool truther(int a , byte b)
+{
+    return true;
+}
+bool falsesr(int t)
+{
+    return t <= 5;
+}
+bool oppo (bool i)
+{
+    return not i;
+}
+void main()
+{
+    if(truther(5,4b) and not falsesr(6))
+    {
+        print("bow chica bow wow");
+    }
+    else
+    {
+        print("dishonor");
+    }
+    int x = 1;
+    if(not (5 == 7) and 3 > 0)
+    {
+        print("thats what my baby said");
+        x = 6;
+    }
+    if(oppo(false))
+    {
+        print("mow mow mow");
+    }
+    if(x == 6)
+        print("and my heart starts bumping");
+}

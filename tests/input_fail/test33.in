@@ -1,0 +1,7 @@
+void main() {
+	
+	if (true) if (false) if (true) int q; else int z; else int t;
+	int a;
+	int a;
+
+}

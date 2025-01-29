@@ -1,0 +1,8 @@
+void main() {
+    if (5 < 10 and true) {
+	print("ok");    
+    } // Valid
+    if (5 < 10 and 1) {
+	print("bad");
+    }    // Error: Logical operator requires boolean operand
+}

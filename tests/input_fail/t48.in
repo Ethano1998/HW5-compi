@@ -1,0 +1,6 @@
+void main() {
+    while (true) {
+        break;    // Valid
+    }
+    break; // Error: Break outside loop
+}

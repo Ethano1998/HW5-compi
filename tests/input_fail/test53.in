@@ -1,0 +1,6 @@
+void main() {
+	
+	int x; // comment
+	x = "NOT  STRING TO INT CONVERSION";
+
+}

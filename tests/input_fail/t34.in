@@ -1,0 +1,6 @@
+void main() {
+    int x;
+    byte y = 10b;
+    x = y;   // Valid: Implicit conversion from byte to int
+    y = x;   // Error: int cannot be implicitly assigned to byte
+}

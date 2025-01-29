@@ -1,0 +1,24 @@
+bool retfalse()
+{
+    print("wrong");
+    return false;
+}
+bool rettrue()
+{
+    print("wrong");
+    return true;
+}
+
+void main ()
+{
+    if(( true or retfalse() ) and (5 == 5))
+    {
+        print("good");
+    }
+    if(false and rettrue())
+    {
+        print("wrong");
+        return;
+    }
+    print("good");
+}

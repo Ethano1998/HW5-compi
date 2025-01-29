@@ -1,0 +1,11 @@
+void main() {
+	int x = 3;
+}
+
+bool try(int a) {
+	print("try1");
+}
+
+bool try() {
+	print("try2");
+}

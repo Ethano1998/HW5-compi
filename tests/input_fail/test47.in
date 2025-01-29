@@ -1,0 +1,6 @@
+void main() {
+	
+	if (print("returns void not bool")) int q;
+	if (printi(1)) int q; // "returns void not bool"
+
+}

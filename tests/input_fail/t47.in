@@ -1,0 +1,3 @@
+void main(int x) { // Error: main must not have parameters
+	print("ok");
+}

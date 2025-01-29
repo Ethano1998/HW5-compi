@@ -1,0 +1,8 @@
+int returnByte() {
+    byte b = 10; // Illegal! trying to convert int to byte
+    return b;
+}
+
+void main() {
+    int result = returnByte();
+}

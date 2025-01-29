@@ -1,0 +1,19 @@
+void main() {
+    int x = 10;
+    int y = 5 ; 
+    int result;
+
+    result = x + y - 2 * 4 / 2 + 8;  // Example with multiple binary operations
+    print("Result of x + y - 2 * 4 / 2 + 8:  ");
+    printi(result);
+
+    result = (x + y) * (2 - 4) + 6;  // Another example combining multiple operations
+    print("Result of (x + y) * (2 - 4) + 6:  ");
+    printi(result);
+
+    result = x * y + 2 - 3 * 5 / 2;  // Yet another example
+    print("Result of x * y + 2 - 3 * 5 / 2:  ");
+    printi(result);
+
+    return ;
+}

@@ -1,0 +1,14 @@
+int returnInt() {
+    byte i = 300b;
+    return i; 
+}
+
+void main() {
+    int result = returnInt();
+    byte res = (byte)result;
+    int this = returnByte();
+}
+
+byte returnByte() {
+	return 300b;
+}

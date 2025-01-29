@@ -1,0 +1,7 @@
+void main() {
+	print("ok");
+}
+int foo() {
+    return 42; // Valid
+    return true; // Error: Type mismatch
+}

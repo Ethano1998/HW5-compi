@@ -1,0 +1,11 @@
+void main() {
+	print("ok");
+}
+
+int foo1() {
+	print("1");
+}
+
+int foo2() {
+	int var = foo1;
+}

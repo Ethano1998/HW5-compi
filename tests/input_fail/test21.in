@@ -1,0 +1,9 @@
+void main() {
+	if (true) int s;
+	bool s;
+	int k;
+	return;
+	if (s > k){
+		print("NONONON");
+	}
+}

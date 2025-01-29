@@ -1,0 +1,10 @@
+void main() {
+	print("ok");
+}
+
+int a(int a) {
+	print("ok");
+	int b = a;
+	int c = b;
+	a(c);
+}

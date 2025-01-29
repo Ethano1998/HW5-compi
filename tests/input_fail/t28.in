@@ -1,0 +1,12 @@
+void main() {
+    int x;
+}
+void hey(bool isOk) {
+    int i = 0;
+}
+void printOk(bool isOk) {
+    int i = 0;
+}
+void hey(bool isOk) { // line 10
+    int i = 0;
+} // line 12
