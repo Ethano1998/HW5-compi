@@ -172,6 +172,7 @@ void SemanticVisitor::visit(ast::Formals &node){
 void SemanticVisitor::visit(ast::Formal &node){
     auto table = globalSymbolTable.getTable();
     table->addParam(node.id->value,toString(node.type->type));
+    node.id->offset = std::dynamic_pointer_cast<VarSymbolEntry>(globalSymbolTable.findEntry(node.id->value))->offset;
     scopePrinter.emitVar(node.id->value,node.type->type,table->param_offset);
 }
 

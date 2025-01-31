@@ -41,11 +41,8 @@ void LlvmVisitor::visit(ast::Cast &node){
 }
 
 void LlvmVisitor::visit(ast::Formals &node){
-    int i = 49;
     for(const auto &formal : node.formals){
-                formal->id->offset= i;
                 formal->accept(*this);
-                i--;
             }
 }
 
@@ -55,7 +52,7 @@ void LlvmVisitor::visit(ast::Formal &node){
         code_buffer.emit(return_type_formal + ", ");
     }
     else{
-        int offset_array = 49 - node.id->offset;
+        int offset_array = 50 + node.id->offset;
         code_buffer.emit("store " + return_type_formal + " %" + std::to_string(offset_array) + ", " + return_type_formal +"* getelementptr ([50 x i32], [50 x i32]* %Array,i32 0, i32" + std::to_string(node.id->offset) +")" );
     }
 }
