@@ -67,8 +67,15 @@ void LlvmVisitor::visit(ast::Statements &node){
 }
 
 void LlvmVisitor::visit(ast::VarDecl &node){
-    code_buffer.emit(code_buffer.freshVar());
-    
+    std::string return_type_var = node.type->toString();
+    std::string reg_ptr = code_buffer.freshVar();
+    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset) + "\n");
+    if(node.init_exp != nullptr){
+        code_buffer.emit("store i32 ");
+        node.init_exp->accept(*this);
+        code_buffer.emit(", i32* "+ reg_ptr + "\n");
+    }
+
 }
 
 void LlvmVisitor::visit(ast::Assign &node){
@@ -98,9 +105,11 @@ void LlvmVisitor::visit(ast::While &node){
 void LlvmVisitor::visit(ast::FuncDecl &node){
     std::string return_type_func = node.return_type->toString();
     code_buffer.emit("\ndefine "+ return_type_func +" @" + node.id->value + "(");
+    decl_formal = true;
     node.formals->accept(*this);
     code_buffer.emit(") {\n");
     code_buffer.emit("%Array = alloca [50 x i32]\n");
+    decl_formal = false;
     node.formals->accept(*this);
     node.body->accept(*this);
     code_buffer.emit("}\n");
