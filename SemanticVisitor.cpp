@@ -141,6 +141,7 @@ void SemanticVisitor::visit(ast::ID &node){
             else{
                 auto get_type = std::dynamic_pointer_cast<VarSymbolEntry>(globalSymbolTable.findEntry(node.value))->type;
                 node.type = toBuiltInType(get_type);
+                node.offset = std::dynamic_pointer_cast<VarSymbolEntry>(globalSymbolTable.findEntry(node.value))->offset;
             }    
                 
             break;    
@@ -171,6 +172,7 @@ void SemanticVisitor::visit(ast::Formals &node){
 void SemanticVisitor::visit(ast::Formal &node){
     auto table = globalSymbolTable.getTable();
     table->addParam(node.id->value,toString(node.type->type));
+    node.id->offset = std::dynamic_pointer_cast<VarSymbolEntry>(globalSymbolTable.findEntry(node.id->value))->offset;
     scopePrinter.emitVar(node.id->value,node.type->type,table->param_offset);
 }
 
@@ -212,6 +214,7 @@ void SemanticVisitor::visit(ast::VarDecl &node){
     auto table = globalSymbolTable.getTable();
     scopePrinter.emitVar(node.id->value,node.type->type,table->get_offset());
     table->addVar(node.id->value,toString(node.type->type));
+    node.id->offset = std::dynamic_pointer_cast<VarSymbolEntry>(globalSymbolTable.findEntry(node.id->value))->offset;
     setContext(Context::REFERENCE_VAR);
 }
 
