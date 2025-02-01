@@ -43,10 +43,10 @@ void LlvmVisitor::visit(ast::Cast &node){
 void LlvmVisitor::visit(ast::Formals &node){
     int i = 49;
     for(const auto &formal : node.formals){
-                formal->id->offset= i;
-                formal->accept(*this);
-                i--;
-            }
+        formal->id->offset= i;
+        formal->accept(*this);
+        i--;
+    }
 }
 
 void LlvmVisitor::visit(ast::Formal &node){
@@ -62,13 +62,12 @@ void LlvmVisitor::visit(ast::Formal &node){
 
 void LlvmVisitor::visit(ast::Statements &node){
     for(const auto &statement : node.statements){
-            statement->accept(*this);
-            }    
+        statement->accept(*this);
+    }    
 }
 
 void LlvmVisitor::visit(ast::VarDecl &node){
     code_buffer.emit(code_buffer.freshVar());
-    
 }
 
 void LlvmVisitor::visit(ast::Assign &node){
