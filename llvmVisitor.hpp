@@ -7,6 +7,8 @@
 class LlvmVisitor : public Visitor {
 public:
     output::CodeBuffer code_buffer;
+    std::vector<std::string> entry_labels;
+    std::vector<std::string> exit_labels;
 
     bool decl_formal;
     

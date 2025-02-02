@@ -196,7 +196,7 @@ void LlvmVisitor::visit(ast::Call &node){
     arguments.pop_back();
     if(node.func_id->type == ast::BuiltInType::BOOL){
         code_buffer.emit(node.var + " = i1 @" + node.func_id->value + "("+ arguments +")\n");
-    }
+    } 
 }
 
 void LlvmVisitor::visit(ast::ExpList &node){
@@ -211,12 +211,26 @@ void LlvmVisitor::visit(ast::ExpList &node){
 }
 
 void LlvmVisitor::visit(ast::Return &node){
+    if(node.exp){
+        if(node.exp->type == ast::BuiltInType::BOOL){
+            code_buffer.emit("ret i1 " + node.exp->var + "\n");
+        }else{
+            code_buffer.emit("ret i32 " + node.exp->var + "\n");
+        }
+    }
+    else{
+        code_buffer.emit("ret void\n");
+    }
 }
 
 void LlvmVisitor::visit(ast::Break &node){
+    std::string exit_label = exit_labels.back();
+    code_buffer.emit("br label "+ exit_label + "\n");
 }
 
 void LlvmVisitor::visit(ast::Continue &node){
+    std::string entry_label = entry_labels.back();
+    code_buffer.emit("br label "+ entry_label + "\n");
 }
 
 void LlvmVisitor::visit(ast::If &node){
@@ -239,6 +253,23 @@ void LlvmVisitor::visit(ast::If &node){
 }
 
 void LlvmVisitor::visit(ast::While &node){
+    std::string whileEntry = code_buffer.freshLabel();
+    std::string whileBody = code_buffer.freshLabel();
+    std::string whileExit = code_buffer.freshLabel();
+    exit_labels.push_back(whileExit);
+    entry_labels.push_back(whileEntry);
+
+    code_buffer.emitLabel(whileEntry);
+    node.condition->accept(*this);
+    code_buffer.emit("br i1 " + node.condition->var + ", label " + whileBody + ", label " + whileExit + "\n");
+
+    code_buffer.emitLabel(whileBody);
+    node.body->accept(*this);
+    code_buffer.emit("br label " + whileEntry + "\n");  
+
+    code_buffer.emitLabel(whileExit);
+    exit_labels.pop_back();
+    entry_labels.pop_back();
 }
 
 void LlvmVisitor::visit(ast::FuncDecl &node){
