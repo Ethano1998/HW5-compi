@@ -265,6 +265,7 @@ namespace ast {
 
         // Constructor that receives no expressions
         ExpList() = default;
+        std::vector<std::string> args_list;
 
         // Constructor that receives the first expression
         explicit ExpList(std::shared_ptr<Exp> exp);
@@ -428,6 +429,9 @@ namespace ast {
         // Type of the parameter
         std::shared_ptr<Type> type;
 
+        std::string formal_buffer;
+        std::string var;
+
         // Constructor that receives the identifier and the type
         Formal(std::shared_ptr<ID> id, std::shared_ptr<Type> type);
 
@@ -441,6 +445,8 @@ namespace ast {
     public:
         // List of formal parameters
         std::vector<std::shared_ptr<Formal>> formals;
+
+        std::string formal_list;
 
         // Constructor that receives no parameters
         Formals() = default;

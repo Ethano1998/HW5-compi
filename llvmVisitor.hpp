@@ -8,8 +8,7 @@ class LlvmVisitor : public Visitor {
 public:
     output::CodeBuffer code_buffer;
 
-     bool decl_formal = true;
-     bool get_var_exp;
+    bool decl_formal;
     
     std::string toString(ast::BuiltInType type) {
         switch (type) {

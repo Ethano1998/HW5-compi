@@ -33,6 +33,8 @@ namespace ast {
         switch (type) {
             case BuiltInType::VOID:
                 return "void";
+            case BuiltInType::BOOL:
+                return "i1";    
             default:
                 return "i32";
         }

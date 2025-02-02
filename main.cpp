@@ -19,6 +19,6 @@ int main(){
 
     program->accept(llvmVisitor);
 
-    std::cout << llvmVisitor.buffer;
+    std::cout << llvmVisitor.code_buffer;
 
 }

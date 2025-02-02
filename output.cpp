@@ -163,7 +163,7 @@ namespace output {
     }
 
     void CodeBuffer::emit(const std::string &str) {
-        buffer << str << std::endl;
+        buffer << str;
     }
 
     void CodeBuffer::emitLabel(const std::string &label) {
