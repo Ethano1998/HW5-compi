@@ -71,8 +71,8 @@ void LlvmVisitor::visit(ast::Cast &node){
 
 void LlvmVisitor::visit(ast::Formals &node){
     for(const auto &formal : node.formals){
-                formal->accept(*this);
-            }
+        formal->accept(*this);
+    }
 }
 
 void LlvmVisitor::visit(ast::Formal &node){
@@ -88,8 +88,8 @@ void LlvmVisitor::visit(ast::Formal &node){
 
 void LlvmVisitor::visit(ast::Statements &node){
     for(const auto &statement : node.statements){
-            statement->accept(*this);
-            }    
+        statement->accept(*this);
+    }    
 }
 
 void LlvmVisitor::visit(ast::VarDecl &node){
@@ -104,10 +104,13 @@ void LlvmVisitor::visit(ast::VarDecl &node){
         node.init_exp->accept(*this);
         code_buffer.emit(", i32* "+ reg_ptr);
     }
+    
 
 }
 
 void LlvmVisitor::visit(ast::Assign &node){
+    std::string reg_ptr = code_buffer.freshVar();
+    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset) + "\n");
 }
 
 void LlvmVisitor::visit(ast::Call &node){
@@ -142,7 +145,6 @@ void LlvmVisitor::visit(ast::FuncDecl &node){
     node.formals->accept(*this);
     node.body->accept(*this);
     code_buffer.emit("}\n");
-   
 }
 
 void LlvmVisitor::visit(ast::Funcs &node){
