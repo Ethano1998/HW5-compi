@@ -28,6 +28,7 @@ public:
         }
     }
 
+
     ast::BuiltInType toBuiltInType(const std::string &type) {
         if (type == "INT") {
             return ast::BuiltInType::INT;

@@ -29,6 +29,16 @@ void LlvmVisitor::visit(ast::String &node){
 }
 
 void LlvmVisitor::visit(ast::Bool &node){
+    if(get_var_exp == false){
+        if(node.value){
+            node.var = "1";
+        }    
+        else{
+            node.var = "0";
+        }    
+    }else{
+        code_buffer.emit(node.var);
+    }
 
 }
 
@@ -110,7 +120,7 @@ void LlvmVisitor::visit(ast::VarDecl &node){
 
 void LlvmVisitor::visit(ast::Assign &node){
     std::string reg_ptr = code_buffer.freshVar();
-    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset) + "\n");
+    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset));
 }
 
 void LlvmVisitor::visit(ast::Call &node){
