@@ -5,21 +5,50 @@
 
 
 void LlvmVisitor::visit(ast::Num &node){
+    if(get_var_exp == false){
+        node.var = std::to_string(node.value);
+    }else{
+        code_buffer.emit(node.var);
+    }
 }
 
 void LlvmVisitor::visit(ast::NumB &node){
+    if(get_var_exp == false){
+        node.var = std::to_string(node.value);
+    }else{
+        code_buffer.emit(node.var);
+    }
 }
 
 void LlvmVisitor::visit(ast::String &node){
+    if(get_var_exp == false){
+        node.var = node.value;
+    }else{
+        code_buffer.emit(node.var);
+    }
 }
 
 void LlvmVisitor::visit(ast::Bool &node){
+
 }
 
 void LlvmVisitor::visit(ast::ID &node){
+    if(get_var_exp == false){
+    std::string ptr_reg = "%ptr_" + std::to_string(node.offset);
+    code_buffer.emit(ptr_reg + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.offset) );
+    node.var = "%val_" + node.offset;
+    code_buffer.emit( node.var + " = load i32, i32* " + ptr_reg);
+    }else{
+        code_buffer.emit(node.var);
+    }
 }
 
 void LlvmVisitor::visit(ast::BinOp &node){
+    if(get_var_exp == false){
+
+    }else{
+        code_buffer.emit(node.var);
+    }
 }
 
 void LlvmVisitor::visit(ast::RelOp &node){
@@ -66,11 +95,14 @@ void LlvmVisitor::visit(ast::Statements &node){
 void LlvmVisitor::visit(ast::VarDecl &node){
     std::string return_type_var = node.type->toString();
     std::string reg_ptr = code_buffer.freshVar();
-    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset) + "\n");
+    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset));
     if(node.init_exp != nullptr){
+        get_var_exp= false;
+        node.init_exp->accept(*this);
+        get_var_exp = true;
         code_buffer.emit("store i32 ");
         node.init_exp->accept(*this);
-        code_buffer.emit(", i32* "+ reg_ptr + "\n");
+        code_buffer.emit(", i32* "+ reg_ptr);
     }
 
 }

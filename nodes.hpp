@@ -53,6 +53,7 @@ namespace ast {
     public:
         Exp() = default;
         BuiltInType type;
+        std::string var;
     };
 
     /* Base class for all statements */
