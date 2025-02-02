@@ -73,6 +73,10 @@ void LlvmVisitor::visit(ast::VarDecl &node){
         node.init_exp->accept(*this);
         code_buffer.emit("store i32 exp_var, i32* "+ reg_ptr + "\n");
     }
+    else if(node.type->type == ast::BuiltInType::INT || node.type->type == ast::BuiltInType::BYTE){
+        code_buffer.emit("store i32 0, i32* "+ reg_ptr + "\n");
+    }
+    
 
 }
 
