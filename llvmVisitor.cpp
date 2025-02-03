@@ -19,22 +19,22 @@ void LlvmVisitor::visit(ast::String &node){
 void LlvmVisitor::visit(ast::Bool &node){
         if(node.value){
             node.var = code_buffer.freshVar();
-            code_buffer.emit(node.var + " = add i1 1, 0\n");
+            code_buffer.emit(node.var + " = add i1 1, 0");
         }    
         else{
             node.var = code_buffer.freshVar();
-            code_buffer.emit(node.var + " = add i1 0, 0\n");
+            code_buffer.emit(node.var + " = add i1 0, 0");
         }    
 }
 
 void LlvmVisitor::visit(ast::ID &node){
     std::string ptr_reg = code_buffer.freshVar();
-    code_buffer.emit(ptr_reg + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.offset) + "\n");
+    code_buffer.emit(ptr_reg + " = getelementptr [50 x i32], [50 x i32]* %Array" + std::to_string(function_count) + ", i32 0, i32 " + node.offset_to_string());
     node.var = code_buffer.freshVar();
-    code_buffer.emit( node.var + " = load i32, i32* " + ptr_reg + "\n");
+    code_buffer.emit( node.var + " = load i32, i32* " + ptr_reg);
     if(node.type == ast::BuiltInType::BOOL ){
         std::string reg_bool = code_buffer.freshVar();
-        code_buffer.emit(reg_bool + "trunc i32 " + node.var + "to i1\n");
+        code_buffer.emit(reg_bool + " = trunc i32 " + node.var + " to i1");
         node.var = reg_bool;
     }
 }
@@ -46,16 +46,16 @@ void LlvmVisitor::visit(ast::BinOp &node){
     switch (node.op)
     {
     case ast::BinOpType::ADD :
-        code_buffer.emit(node.var + " = add i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = add i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::BinOpType::SUB :
-        code_buffer.emit(node.var + " = sub i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = sub i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::BinOpType::MUL :
-        code_buffer.emit(node.var + " = mul i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = mul i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::BinOpType::DIV : 
-        code_buffer.emit(node.var + " = sdiv i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = sdiv i32 " + node.left->var + ", " + node.right->var);
         break;       
     default:
         break;
@@ -69,22 +69,22 @@ void LlvmVisitor::visit(ast::RelOp &node){
     switch (node.op)
     {
     case ast::RelOpType::EQ :
-        code_buffer.emit(node.var + " = icomp eq i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = icomp eq i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::GE :
-        code_buffer.emit(node.var + " = icomp sge i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = icomp sge i32 " + node.left->var + ", " + node.right->var);
         break;    
     case ast::RelOpType::GT :
-        code_buffer.emit(node.var + " = icomp sgt i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = icomp sgt i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::LE :
-        code_buffer.emit(node.var + " = icomp sle i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = icomp sle i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::LT :
-        code_buffer.emit(node.var + " = icomp slt i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = icomp slt i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::NE :
-        code_buffer.emit(node.var + " = icomp ne i32 " + node.left->var + ", " + node.right->var + "\n");
+        code_buffer.emit(node.var + " = icomp ne i32 " + node.left->var + ", " + node.right->var);
         break;        
     default:
         break;
@@ -94,21 +94,21 @@ void LlvmVisitor::visit(ast::RelOp &node){
 void LlvmVisitor::visit(ast::Not &node){
     node.exp->accept(*this);
     node.var = code_buffer.freshVar();
-    code_buffer.emit(node.var + " = xor i1 " + node.exp->var + ", 1\n" );
+    code_buffer.emit(node.var + " = xor i1 " + node.exp->var + ", 1" );
 }
 
 void LlvmVisitor::visit(ast::And &node){
     node.left->accept(*this);
     node.right->accept(*this);
     node.var = code_buffer.freshVar();
-    code_buffer.emit(node.var + " = and i1 " + node.left->var + ", " + node.right->var + "\n" );
+    code_buffer.emit(node.var + " = and i1 " + node.left->var + ", " + node.right->var);
 }
 
 void LlvmVisitor::visit(ast::Or &node){
     node.left->accept(*this);
     node.right->accept(*this);
     node.var = code_buffer.freshVar();
-    code_buffer.emit(node.var + " = or i1 " + node.left->var + ", " + node.right->var + "\n" );
+    code_buffer.emit(node.var + " = or i1 " + node.left->var + ", " + node.right->var);
 }
 
 void LlvmVisitor::visit(ast::Type &node){
@@ -139,10 +139,12 @@ void LlvmVisitor::visit(ast::Formal &node){
         int offset_array = 50 + node.id->offset;
         if(node.type->type == ast::BuiltInType::BOOL ){
             std::string bool_to_i32 = code_buffer.freshVar();
-            code_buffer.emit(bool_to_i32 + " = zext i1 " + node.var + " to i32\n");
+            code_buffer.emit(bool_to_i32 + " = zext i1 " + node.var + " to i32");
             node.var = bool_to_i32;
         }
-        code_buffer.emit("store i32 " + node.var + ", i32* getelementptr ([50 x i32], [50 x i32]* %Array,i32 0, i32" + std::to_string(offset_array) +")\n" );
+        std::string reg_ptr = code_buffer.freshVar();
+        code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array" + std::to_string(function_count) + ", i32 0, i32 " + std::to_string(offset_array));
+        code_buffer.emit("store i32 " + node.var +", i32* "+ reg_ptr);
     }
 }
 
@@ -156,34 +158,32 @@ void LlvmVisitor::visit(ast::VarDecl &node){
     std::string return_type_var = node.type->toString();
     std::string reg_ptr = code_buffer.freshVar();
     node.id->var = reg_ptr;
-    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset) + "\n");
+    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array" + std::to_string(function_count) + ", i32 0, i32 " + node.id->offset_to_string());
     if(node.init_exp != nullptr){
         node.init_exp->accept(*this);
         if(node.init_exp->type == ast::BuiltInType::BOOL){
             std::string bool_to_i32 = code_buffer.freshVar();
-            code_buffer.emit(bool_to_i32 + " = zext i1 " + node.init_exp->var + " to i32\n");
+            code_buffer.emit(bool_to_i32 + " = zext i1 " + node.init_exp->var + " to i32");
             node.init_exp->var = bool_to_i32;
         }
-        code_buffer.emit("store i32 " + node.init_exp->var +", i32* "+ reg_ptr + "\n");
+        code_buffer.emit("store i32 " + node.init_exp->var +", i32* "+ reg_ptr);
     } else {
         if(node.return_type == ast::BuiltInType::INT || node.return_type == ast::BuiltInType::BYTE || node.return_type == ast::BuiltInType::BOOL){
-            code_buffer.emit("store i32 0, i32*" + reg_ptr + "\n" );
+            code_buffer.emit("store i32 0, i32*" + reg_ptr);
         }
     }
-    
-
 }
 
 void LlvmVisitor::visit(ast::Assign &node){
     std::string reg_ptr = code_buffer.freshVar();
-    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array, i32 0, i32 " + std::to_string(node.id->offset) + "\n");
+    code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array" + std::to_string(function_count) + ", i32 0, i32 " + node.id->offset_to_string());
     node.exp->accept(*this);
     if(node.exp->type == ast::BuiltInType::BOOL) {
             std::string bool_to_i32 = code_buffer.freshVar();
-            code_buffer.emit(bool_to_i32 + " = zext i1 " + node.exp->var + " to i32\n");
+            code_buffer.emit(bool_to_i32 + " = zext i1 " + node.exp->var + " to i32");
             node.exp->var = bool_to_i32;
         }
-    code_buffer.emit("store i32 " + node.exp->var +", i32* "+ reg_ptr + "\n");
+    code_buffer.emit("store i32 " + node.exp->var +", i32* "+ reg_ptr);
 
 
 }
@@ -199,8 +199,14 @@ void LlvmVisitor::visit(ast::Call &node){
         arguments.pop_back();
     }
     if(node.func_id->type == ast::BuiltInType::BOOL){
-        code_buffer.emit(node.var + " = i1 @" + node.func_id->value + "("+ arguments +")\n");
-    } 
+        code_buffer.emit(node.var + " = call i1 @" + node.func_id->value + "("+ arguments +")");
+    }
+    else if(node.func_id->type == ast::BuiltInType::INT){
+        code_buffer.emit(node.var + " = call i32 @" + node.func_id->value + "("+ arguments +")");
+    }
+    else{
+        code_buffer.emit("call void @" + node.func_id->value + "("+ arguments +")");
+    }
 }
 
 void LlvmVisitor::visit(ast::ExpList &node){
@@ -217,24 +223,24 @@ void LlvmVisitor::visit(ast::ExpList &node){
 void LlvmVisitor::visit(ast::Return &node){
     if(node.exp){
         if(node.exp->type == ast::BuiltInType::BOOL){
-            code_buffer.emit("ret i1 " + node.exp->var + "\n");
+            code_buffer.emit("ret i1 " + node.exp->var);
         }else{
-            code_buffer.emit("ret i32 " + node.exp->var + "\n");
+            code_buffer.emit("ret i32 " + node.exp->var);
         }
     }
     else{
-        code_buffer.emit("ret void\n");
+        code_buffer.emit("ret void");
     }
 }
 
 void LlvmVisitor::visit(ast::Break &node){
     std::string exit_label = exit_labels.back();
-    code_buffer.emit("br label "+ exit_label + "\n");
+    code_buffer.emit("br label "+ exit_label);
 }
 
 void LlvmVisitor::visit(ast::Continue &node){
     std::string entry_label = entry_labels.back();
-    code_buffer.emit("br label "+ entry_label + "\n");
+    code_buffer.emit("br label "+ entry_label);
 }
 
 void LlvmVisitor::visit(ast::If &node){
@@ -243,15 +249,15 @@ void LlvmVisitor::visit(ast::If &node){
     std::string if_true_label = code_buffer.freshLabel();
     std::string if_false_label = code_buffer.freshLabel();
     std::string if_end_label = code_buffer.freshLabel();
-    code_buffer.emit("br i1 " + reg_cond + ", label " + if_true_label + ", label" + if_false_label + "\n");
+    code_buffer.emit("br i1 " + reg_cond + ", label " + if_true_label + ", label " + if_false_label);
     code_buffer.emitLabel(if_true_label);
     node.then->accept(*this);
-    code_buffer.emit("br label " + if_end_label + "\n");
+    code_buffer.emit("br label " + if_end_label);
     code_buffer.emitLabel(if_false_label);
     if(node.otherwise){
         node.otherwise->accept(*this);
     }
-    code_buffer.emit("br label " + if_end_label + "\n");
+    code_buffer.emit("br label " + if_end_label);
 
     code_buffer.emitLabel(if_end_label);
 }
@@ -265,11 +271,11 @@ void LlvmVisitor::visit(ast::While &node){
 
     code_buffer.emitLabel(whileEntry);
     node.condition->accept(*this);
-    code_buffer.emit("br i1 " + node.condition->var + ", label " + whileBody + ", label " + whileExit + "\n");
+    code_buffer.emit("br i1 " + node.condition->var + ", label " + whileBody + ", label " + whileExit);
 
     code_buffer.emitLabel(whileBody);
     node.body->accept(*this);
-    code_buffer.emit("br label " + whileEntry + "\n");  
+    code_buffer.emit("br label " + whileEntry);  
 
     code_buffer.emitLabel(whileExit);
     if(!exit_labels.empty()){
@@ -281,15 +287,19 @@ void LlvmVisitor::visit(ast::While &node){
 }
 
 void LlvmVisitor::visit(ast::FuncDecl &node){
+    function_count++;
     std::string return_type_func = node.return_type->toString();
     decl_formal = true;
     node.formals->accept(*this);
     const char* f_list = node.formals->formal_list.c_str();
-    code_buffer.emit("\ndefine "+ return_type_func +" @" + node.id->value + "(" + f_list + "){\n");
-    code_buffer.emit("%Array = alloca [50 x i32]\n");
+    code_buffer.emit("\ndefine "+ return_type_func +" @" + node.id->value + "(" + f_list + "){");
+    code_buffer.emit("%Array" + std::to_string(function_count) + " = alloca [50 x i32]");
     decl_formal = false;
     node.formals->accept(*this);
-    node.body->accept(*this);  
+    node.body->accept(*this);
+    if(node.return_type->type == ast::BuiltInType::VOID){
+        code_buffer.emit("ret void");
+    }
     code_buffer.emit("}\n");
 }
 

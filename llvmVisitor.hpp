@@ -9,6 +9,7 @@ public:
     output::CodeBuffer code_buffer;
     std::vector<std::string> entry_labels;
     std::vector<std::string> exit_labels;
+    int function_count = 0;
 
     bool decl_formal;
     

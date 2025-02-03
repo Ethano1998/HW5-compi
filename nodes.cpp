@@ -21,6 +21,13 @@ namespace ast {
 
     ID::ID(const char *str) : Exp(), value(str) {}
 
+    std::string ID::offset_to_string() {
+        if(offset < 0){
+            return std::to_string(50 + offset);
+        }
+        return std::to_string(offset);
+    }
+
     BinOp::BinOp(std::shared_ptr<Exp> left, std::shared_ptr<Exp> right, BinOpType op)
             : Exp(), left(std::move(left)), right(std::move(right)), op(op) {}
 

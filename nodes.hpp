@@ -130,6 +130,8 @@ namespace ast {
 
         int offset;
 
+        std::string offset_to_string();
+
         // Constructor that receives a C-style string that represents the identifier
         explicit ID(const char *str);
 
