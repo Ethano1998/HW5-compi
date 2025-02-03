@@ -123,7 +123,9 @@ void LlvmVisitor::visit(ast::Formals &node){
         formal->accept(*this);
         node.formal_list.append(formal->formal_buffer);
     }
+    if (!node.formal_list.empty()) {
     node.formal_list.pop_back();
+    }
 }
 
 void LlvmVisitor::visit(ast::Formal &node){
@@ -193,7 +195,9 @@ void LlvmVisitor::visit(ast::Call &node){
     for(auto const &arg : node.args->args_list){
         arguments.append(arg);
     }
-    arguments.pop_back();
+    if(!arguments.empty()){
+        arguments.pop_back();
+    }
     if(node.func_id->type == ast::BuiltInType::BOOL){
         code_buffer.emit(node.var + " = i1 @" + node.func_id->value + "("+ arguments +")\n");
     } 
@@ -268,15 +272,20 @@ void LlvmVisitor::visit(ast::While &node){
     code_buffer.emit("br label " + whileEntry + "\n");  
 
     code_buffer.emitLabel(whileExit);
-    exit_labels.pop_back();
-    entry_labels.pop_back();
+    if(!exit_labels.empty()){
+        exit_labels.pop_back();
+    }
+    if(!entry_labels.empty()){
+        entry_labels.pop_back();
+    }
 }
 
 void LlvmVisitor::visit(ast::FuncDecl &node){
     std::string return_type_func = node.return_type->toString();
     decl_formal = true;
     node.formals->accept(*this);
-    code_buffer.emit("\ndefine "+ return_type_func +" @" + node.id->value + "(" + node.formals->formal_list + "){\n");
+    const char* f_list = node.formals->formal_list.c_str();
+    code_buffer.emit("\ndefine "+ return_type_func +" @" + node.id->value + "(" + f_list + "){\n");
     code_buffer.emit("%Array = alloca [50 x i32]\n");
     decl_formal = false;
     node.formals->accept(*this);
