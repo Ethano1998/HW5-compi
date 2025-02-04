@@ -222,11 +222,16 @@ void LlvmVisitor::visit(ast::VarDecl &node){
             code_buffer.emit(bool_to_i32 + " = zext i1 " + node.init_exp->var + " to i32");
             node.init_exp->var = bool_to_i32;
         }
+        if(node.init_exp->type == ast::BuiltInType::BYTE){
+            std::string trunc = code_buffer.freshVar();
+            code_buffer.emit(trunc + " = trunc i32 " + node.init_exp->var + " to i8");
+            std::string byte_to_i32 = code_buffer.freshVar();
+            code_buffer.emit(byte_to_i32 + " = zext i8 " + trunc + " to i32");
+            node.init_exp->var = byte_to_i32;
+        }
         code_buffer.emit("store i32 " + node.init_exp->var +", i32* "+ reg_ptr);
     } else {
-        if(node.return_type == ast::BuiltInType::INT || node.return_type == ast::BuiltInType::BYTE || node.return_type == ast::BuiltInType::BOOL){
             code_buffer.emit("store i32 0, i32*" + reg_ptr);
-        }
     }
 }
 
@@ -235,9 +240,16 @@ void LlvmVisitor::visit(ast::Assign &node){
     code_buffer.emit(reg_ptr + " = getelementptr [50 x i32], [50 x i32]* %Array" + std::to_string(function_count) + ", i32 0, i32 " + node.id->offset_to_string());
     node.exp->accept(*this);
     if(node.exp->type == ast::BuiltInType::BOOL) {
-            std::string bool_to_i32 = code_buffer.freshVar();
-            code_buffer.emit(bool_to_i32 + " = zext i1 " + node.exp->var + " to i32");
-            node.exp->var = bool_to_i32;
+        std::string bool_to_i32 = code_buffer.freshVar();
+        code_buffer.emit(bool_to_i32 + " = zext i1 " + node.exp->var + " to i32");
+        node.exp->var = bool_to_i32;
+    }
+    if(node.exp->type == ast::BuiltInType::BYTE){
+        std::string trunc = code_buffer.freshVar();
+        code_buffer.emit(trunc + " = trunc i32 " + node.exp->var + " to i8");
+        std::string byte_to_i32 = code_buffer.freshVar();
+        code_buffer.emit(byte_to_i32 + " = zext i8 " + trunc + " to i32");
+        node.exp->var = byte_to_i32;
         }
     code_buffer.emit("store i32 " + node.exp->var +", i32* "+ reg_ptr);
 
