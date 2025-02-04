@@ -70,6 +70,7 @@ void LlvmVisitor::visit(ast::BinOp &node){
         std::string string_var = code_buffer.freshVar();
         code_buffer.emit(string_var + " = getelementptr [23 x i8], [23 x i8]* @.str0, i32 0, i32 0");    
         code_buffer.emit("call void @print(i8* " + string_var + ")");
+        code_buffer.emit("call void @exit(i32 1)");
         code_buffer.emit("br label " + if_end_label);
         code_buffer.emitLabel(if_false_label);
         code_buffer.emit("br label " + if_end_label);
@@ -116,16 +117,52 @@ void LlvmVisitor::visit(ast::Not &node){
 
 void LlvmVisitor::visit(ast::And &node){
     node.left->accept(*this);
+    std::string reg_cond = node.left->var;
+    std::string if_true_label = code_buffer.freshLabel();
+    std::string if_false_label = code_buffer.freshLabel();
+    std::string both_true_label = code_buffer.freshLabel();
+    std::string if_end_label = code_buffer.freshLabel();
+    code_buffer.emit("br i1 " + reg_cond + ", label " + if_true_label + ", label " + if_false_label);
+    code_buffer.emitLabel(if_true_label);
     node.right->accept(*this);
+    reg_cond = node.right->var;
+    code_buffer.emit("br i1 " + reg_cond + ", label " + both_true_label + ", label " + if_false_label);
+    code_buffer.emitLabel(both_true_label);
+    std::string truevar = code_buffer.freshVar();
+    code_buffer.emit(truevar + " = add i1 1, 0");
+    code_buffer.emit("br label " + if_end_label);
+    code_buffer.emitLabel(if_false_label);
+    std::string falsevar = code_buffer.freshVar();
+    code_buffer.emit(falsevar + " = add i1 0, 0");
+    code_buffer.emit("br label " + if_end_label);
+    code_buffer.emitLabel(if_end_label);
     node.var = code_buffer.freshVar();
-    code_buffer.emit(node.var + " = and i1 " + node.left->var + ", " + node.right->var);
+    code_buffer.emit(node.var + " = phi i1 [" + truevar + ", %" + both_true_label.substr(1) + "], [" + falsevar + ", %" + if_false_label.substr(1) + "]");
 }
 
 void LlvmVisitor::visit(ast::Or &node){
     node.left->accept(*this);
+    std::string reg_cond = node.left->var;
+    std::string if_true_label = code_buffer.freshLabel();
+    std::string if_false_label = code_buffer.freshLabel();
+    std::string both_false_label = code_buffer.freshLabel();
+    std::string if_end_label = code_buffer.freshLabel();
+    code_buffer.emit("br i1 " + reg_cond + ", label " + if_true_label + ", label " + if_false_label);
+    code_buffer.emitLabel(if_true_label);
+    std::string truevar = code_buffer.freshVar();
+    code_buffer.emit(truevar + " = add i1 1, 0");
+    code_buffer.emit("br label " + if_end_label);
+    code_buffer.emitLabel(if_false_label);
     node.right->accept(*this);
+    reg_cond = node.right->var;
+    code_buffer.emit("br i1 " + reg_cond + ", label " + if_true_label + ", label " + both_false_label);
+    code_buffer.emitLabel(both_false_label);
+    std::string falsevar = code_buffer.freshVar();
+    code_buffer.emit(falsevar + " = add i1 0, 0");
+    code_buffer.emit("br label " + if_end_label);
+    code_buffer.emitLabel(if_end_label);
     node.var = code_buffer.freshVar();
-    code_buffer.emit(node.var + " = or i1 " + node.left->var + ", " + node.right->var);
+    code_buffer.emit(node.var + " = phi i1 [" + truevar + ", %" + if_true_label.substr(1) + "], [" + falsevar + ", %" + both_false_label.substr(1) + "]");
 }
 
 void LlvmVisitor::visit(ast::Type &node){
@@ -133,6 +170,8 @@ void LlvmVisitor::visit(ast::Type &node){
 
 
 void LlvmVisitor::visit(ast::Cast &node){
+    node.exp->accept(*this);
+    node.var = node.exp->var;
 }
 
 void LlvmVisitor::visit(ast::Formals &node){
