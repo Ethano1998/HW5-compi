@@ -13,20 +13,35 @@ void LlvmVisitor::visit(ast::NumB &node){
 }
 
 void LlvmVisitor::visit(ast::String &node){
-        std::string var_str = code_buffer.emitString(node.value);
-        node.var = code_buffer.freshVar();
-        code_buffer.emit(node.var + " = getelementptr [" + std::to_string(node.value.length() + 1) + " x i8], [" + std::to_string(node.value.length() + 1) + " x i8]* " + var_str + ", i32 0, i32 0");        
+    std::string copy;
+    for (char ch : node.value) {
+        if (ch == '\n') {
+            copy += "\\n";
+        }
+        else if (ch == '\t') {
+            copy += "\\t";
+        }
+        else if (ch == '\r') {
+            copy += "\\r";
+        }
+        else{
+            copy += ch;
+        }
+    }
+    std::string var_str = code_buffer.emitString(copy);
+    node.var = code_buffer.freshVar();
+    code_buffer.emit(node.var + " = getelementptr [" + std::to_string(copy.length() + 1) + " x i8], [" + std::to_string(copy.length() + 1) + " x i8]* " + var_str + ", i32 0, i32 0");        
 }
 
 void LlvmVisitor::visit(ast::Bool &node){
-        if(node.value){
-            node.var = code_buffer.freshVar();
-            code_buffer.emit(node.var + " = add i1 1, 0");
-        }    
-        else{
-            node.var = code_buffer.freshVar();
-            code_buffer.emit(node.var + " = add i1 0, 0");
-        }    
+    if(node.value){
+        node.var = code_buffer.freshVar();
+        code_buffer.emit(node.var + " = add i1 1, 0");
+    }    
+    else{
+        node.var = code_buffer.freshVar();
+        code_buffer.emit(node.var + " = add i1 0, 0");
+    }    
 }
 
 void LlvmVisitor::visit(ast::ID &node){
@@ -77,6 +92,13 @@ void LlvmVisitor::visit(ast::BinOp &node){
         code_buffer.emitLabel(if_end_label);
 
         code_buffer.emit(node.var + " = sdiv i32 " + node.left->var + ", " + node.right->var);
+    }
+    if(node.type == ast::BuiltInType::BYTE){
+        std::string trunc = code_buffer.freshVar();
+        code_buffer.emit(trunc + " = trunc i32 " + node.var + " to i8");
+        std::string byte_to_i32 = code_buffer.freshVar();
+        code_buffer.emit(byte_to_i32 + " = zext i8 " + trunc + " to i32");
+        node.var = byte_to_i32;
     }
 }
 
@@ -373,6 +395,11 @@ void LlvmVisitor::visit(ast::FuncDecl &node){
     node.body->accept(*this);
     if(node.return_type->type == ast::BuiltInType::VOID){
         code_buffer.emit("ret void");
+    }
+    else if(node.return_type->type == ast::BuiltInType::BOOL){
+        code_buffer.emit("ret i1 0");
+    }else{
+        code_buffer.emit("ret i32 0");
     }
     code_buffer.emit("}\n");
 }
