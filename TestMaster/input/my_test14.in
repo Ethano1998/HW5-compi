@@ -1,0 +1,10 @@
+// Test 14: Function Without Explicit Return (Default Return)
+int foo() {
+    int a = 10;
+    // No explicit return; default return 0 is expected
+}
+
+void main() {
+    int x = foo();
+    printi(x);
+}

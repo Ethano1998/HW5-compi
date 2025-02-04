@@ -1,0 +1,10 @@
+void main() {
+    bool a = true;
+    bool b = false;
+    bool c = true;
+    if ((a or b) and (not c or (a and b))) {
+        print("Complex boolean true");
+    } else {
+        print("Complex boolean false");
+    }
+}

@@ -1,0 +1,10 @@
+byte getfive()
+{
+    return 5b;
+}
+void main()
+{
+    int x = getfive();
+    printi(x);
+}
+

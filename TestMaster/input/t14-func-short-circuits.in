@@ -1,0 +1,33 @@
+void main() {
+//short circuit, functions
+
+if (true or false)
+	int x;
+
+if (false or true)
+	int x;
+
+if (not false or true)
+	int x;
+
+if (true and false)
+	int x;
+
+if (false and true)
+	int x;
+
+if (not false and true)
+	int x;
+
+int i = 0;
+while(true and i < 2) {
+	i = i + 2;
+	printi(i);
+}
+
+i = 0;
+while(false or i < 2) {
+	i = i + 3;
+	printi(i);
+}
+}

@@ -1,0 +1,7 @@
+void main() {
+	
+	byte x = 200b + 200b;
+	byte y = 0b;
+	byte z = 2 - 1b;
+
+}

@@ -1,0 +1,17 @@
+int plusser (int a , int b, int c, byte d)
+{
+    int y = 9 + a + b + c + d + a + b+ c + d;
+    return y;
+}
+void main()
+{
+    if(plusser(1,1,1,1b) == 17)
+    {
+        print("good");
+    }
+    if(plusser(2,2,2,0b) + plusser(0,1,0,1b) == 21 + 13)
+    {
+        print("very good");
+    }
+    print("fail, im sorry");
+}

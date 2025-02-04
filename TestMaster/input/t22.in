@@ -1,0 +1,13 @@
+int notprinti (int t)
+{
+    return 2;
+}
+void main()
+{
+    byte b = 255b;
+    int x = b + 1b;
+    printi(x);
+    byte g = b + 1b;
+    printi(g);
+    printi(notprinti(4b));
+}

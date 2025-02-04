@@ -1,0 +1,6 @@
+// Test 16: Implicit Conversion in Mixed Expressions
+void main() {
+    byte b = 200b;
+    int x = b + 0;  // Should convert b to int (result 200) without truncation
+    printi(x);
+}

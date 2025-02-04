@@ -1,0 +1,9 @@
+void main(){
+    if (isOk) print("ok");
+}
+
+void printOK(){
+    int x = 4;
+    byte y = 100b;
+    int z;
+}

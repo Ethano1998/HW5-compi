@@ -1,0 +1,130 @@
+int bigger(int x, int y) {
+    if (x > y) {
+        return 1;
+    }
+    return 0;
+}
+
+int smaller(int x, int y) {
+    if (x < y) {
+        return 1;
+    }
+    return 0;
+}
+
+int equal(int x, int y) {
+    if (x == y) {
+        return 1;
+    }
+    return 0;
+}
+
+void main() {
+    int a = 5;
+    int b = 10;
+    int c = 8;
+    int d = 3;
+    int e = 7;
+    int p = 0;
+    int q = 1;
+    int r = 5;
+    int s = 5;
+    int xx = 2;
+    int yy = 9;
+
+    bool expr1 = ((a + b) < (c + d)) and (bigger(a,c) == smaller(d,e));
+    if (expr1) {
+        print("expr1 is true");
+    } else {
+        print("expr1 is false");
+    }
+
+    bool expr2 = (p != q) or ((xx + yy) > (a + c));
+    if (expr2) {
+        print("expr2 is true");
+    } else {
+        print("expr2 is false");
+    }
+
+    bool expr3 = (smaller(a,b) != 0) and (equal(r,s) == 1);
+    if (expr3) {
+        print("expr3 is true");
+    } else {
+        print("expr3 is false");
+    }
+
+    while (((a + b) > (c * d)) or (p < q)) {
+        print("loopA");
+        p = p + 1;
+        if (p > 3) {
+            break;
+        }
+    }
+
+    p = 0;
+    bool expr4 = ((bigger(p,q) + smaller(a,d)) > 1) and ((xx + yy) < 15);
+    if (expr4) {
+        print("expr4 is true");
+    } else {
+        print("expr4 is false");
+    }
+
+    bool expr5 = (equal(r,s) == 1) and ((b - d) < (e + 2));
+    if (expr5) {
+        print("expr5 is true");
+    } else {
+        print("expr5 is false");
+    }
+
+    while ((smaller(p,q) == 1) and ((b + c) > 10)) {
+        print("loopB");
+        q = q + 1;
+        if (q > 3) {
+            break;
+        }
+    }
+
+    bool expr6 = (bigger(a,b) == bigger(c,d)) or (smaller(xx,yy) == 0);
+    if (expr6) {
+        print("expr6 is true");
+    } else {
+        print("expr6 is false");
+    }
+
+    bool expr7 = ((bigger(a,e) + smaller(r,s)) < 2) and ((equal(xx,yy) == 0) or (p > q));
+    if (expr7) {
+        print("expr7 is true");
+    } else {
+        print("expr7 is false");
+    }
+
+    bool expr8 = ((p + q) <= (r + s)) and (equal(a,b) == 0) and ((bigger(c,e) + smaller(a,d)) == 1);
+    if (expr8) {
+        print("expr8 is true");
+    } else {
+        print("expr8 is false");
+    }
+
+    while (((a + b) < 25) and ((xx + yy) < 20)) {
+        print("loopC");
+        xx = xx + 2;
+        if (xx > 5) {
+            break;
+        }
+    }
+
+    bool expr9 = (smaller(p,r) == 1) or (bigger(d,e) == 1);
+    if (expr9) {
+        print("expr9 is true");
+    } else {
+        print("expr9 is false");
+    }
+
+    bool expr10 = (equal(a,c) == 1) or ((bigger(r,s) == 1) and ((xx + yy) > 10));
+    if (expr10) {
+        print("expr10 is true");
+    } else {
+        print("expr10 is false");
+    }
+}
+

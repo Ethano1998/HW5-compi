@@ -1,0 +1,5 @@
+// Test 3: Division Operation (Non‑zero Divisor)
+void main() {
+    int x = 20 / 4;
+    printi(x);
+}

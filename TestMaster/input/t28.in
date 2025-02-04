@@ -1,0 +1,7 @@
+void main() {
+  printi(funkie());
+}
+ 
+int funkie() {
+  int a = 5;
+}

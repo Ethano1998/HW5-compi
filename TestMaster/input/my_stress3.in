@@ -1,0 +1,13 @@
+// Stress Test 3: Deep Recursion
+int rec(int n) {
+    if (n < 1) {
+         return 0;
+    } else {
+         return rec(n - 1) + 1;
+    }
+}
+
+void main() {
+    int r = rec(100);
+    printi(r);
+}

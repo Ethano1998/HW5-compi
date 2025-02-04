@@ -1,0 +1,12 @@
+// Test 8: User‑Defined Function Declaration and Call
+int add(int x, int y) {
+    int result = x + y;
+    return result;
+}
+
+void main() {
+    int a = 10;
+    int b = 20;
+    int c = add(a, b);
+    printi(c);
+}

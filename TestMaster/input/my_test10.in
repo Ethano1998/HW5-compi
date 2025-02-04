@@ -1,0 +1,7 @@
+// Test 10: Type Casting (int ↔ byte)
+void main() {
+    int x = 300;
+    byte y = (byte) x;  // Expected: 300 mod 256 = 44
+    int z = (int) y;
+    printi(z);
+}

@@ -1,0 +1,20 @@
+int foo (int a , byte b)
+{
+    int x = a + b;
+    return x;
+}
+
+void main ()
+{
+    int x = foo (15, 5b);
+    int y = foo (42, 8b);
+    if(x < y)
+    {
+        printi(x+y);
+    }
+    else
+    {
+        print(":/");
+    }
+    
+}

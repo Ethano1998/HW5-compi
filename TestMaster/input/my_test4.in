@@ -1,0 +1,5 @@
+// Test 4: Division‑by‑Zero Check
+void main() {
+    int x = 10 / 0;
+    printi(x);
+}

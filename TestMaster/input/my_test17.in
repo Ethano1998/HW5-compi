@@ -1,0 +1,11 @@
+// Test 17: Unreachable Code After Return
+int foo() {
+    print("foo");
+    return 1;
+    print("this should not print");
+}
+
+void main() {
+    int x = foo();
+    printi(x);
+}

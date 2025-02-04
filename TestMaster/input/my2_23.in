@@ -1,0 +1,8 @@
+byte returnByte() {
+    return (byte)300;  // Should be truncated
+}
+
+void main() {
+    int x = returnByte();  // Should maintain truncated value
+    printi(x);
+}

@@ -1,0 +1,77 @@
+void main() {
+    int player1;
+    int player2;
+    int inputIndex = 0;
+
+    // Inject Player 1's first input
+    player1 = 50;
+    print("Player 1, enter any number: ");
+    printi(player1);
+
+    int divisors1 = 0;
+    int divisors2 = 0;
+
+    int turn = 2; // Player 2 starts the game
+    while (true) {
+        // Count divisors for player1's number
+        int j = 1;
+        while (j <= player1) {
+            if (player1 / j * j == player1) {
+                divisors1 = divisors1 + 1;
+            }
+            j = j + 1;
+        }
+
+        if (turn == 2) {
+            // Inject Player 2's predefined input at the correct time
+            if (inputIndex == 0) player2 = 98;
+
+            print("Player 2, enter a number larger than %d with the same number of divisors: ");
+            printi(player2);
+
+            // Count divisors for player2's number
+            divisors2 = 0;
+            int i = 1;
+            while (i <= player2) {
+                if (player2 / i * i == player2) {
+                    divisors2 = divisors2 + 1;
+                }
+                i = i + 1;
+            }
+
+            if (player2 <= player1 or divisors1 != divisors2) {
+                print("Player 2 loses!");
+                break;
+            }
+            inputIndex = inputIndex + 1;
+        } else {
+            // Inject Player 1's predefined input at the correct time
+            if (inputIndex == 1) player1 = 196;
+
+            print("Player 1, enter a number larger than %d with the same number of divisors: ");
+            printi(player1);
+
+            // Count divisors for player1's number
+            divisors1 = 0;
+            int i = 1;
+            while (i <= player1) {
+                if (player1 / i * i == player1) {
+                    divisors1 = divisors1 + 1;
+                }
+                i = i + 1;
+            }
+
+            if (player1 <= player2 or divisors1 != divisors2) {
+                print("Player 1 loses!");
+                break;
+            }
+            inputIndex = inputIndex + 1;
+        }
+        turn = 3 - turn; // Switch turns between players (1 -> 2 or 2 -> 1)
+    }
+
+    print("Player 1 divisors:");
+    printi(divisors1);
+    print("Player 2 divisors:");
+    printi(divisors2);
+}

@@ -1,0 +1,8 @@
+// Test 5a: Boolean Expression – Logical OR
+void main() {
+    if (true or false) {
+         print("OR true");
+    } else {
+         print("OR false");
+    }
+}

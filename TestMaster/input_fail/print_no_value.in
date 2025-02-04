@@ -1,0 +1,5 @@
+void main(){
+	int x = print("5"); // Should fail
+	printi(5);
+	int y = readi(5);
+}

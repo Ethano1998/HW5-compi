@@ -1,0 +1,4 @@
+// Test 11: Global String Constants and Print
+void main() {
+    print("Hello, world!");
+}

@@ -1,0 +1,3 @@
+lli: TestMaster/output/my2_25.ll:1:1: error: expected top-level entity
+line 2: syntax error
+^

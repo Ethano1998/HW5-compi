@@ -1,0 +1,13 @@
+bool sideEffect() {
+    print("Side effect");
+    return false;
+}
+
+void main() {
+    if (false and sideEffect()) {
+        print("Never prints");
+    }
+    if (true or sideEffect()) {
+        print("Prints without side effect");
+    }
+}

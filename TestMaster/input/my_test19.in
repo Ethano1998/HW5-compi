@@ -1,0 +1,10 @@
+// Test 19: Complex Expression Combining Operations
+int complexOp(int a, int b) {
+    byte c = (byte)(a + b);
+    return c;
+}
+
+void main() {
+    int result = complexOp(150, 150);  // 150+150 = 300, truncated to 44
+    printi(result);
+}

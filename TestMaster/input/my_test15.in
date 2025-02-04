@@ -1,0 +1,9 @@
+// Test 15: Boolean Assignment to Variable
+void main() {
+    bool flag = (5 < 10);
+    if (flag) {
+         print("flag is true");
+    } else {
+         print("flag is false");
+    }
+}

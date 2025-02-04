@@ -1,0 +1,7 @@
+int foo(int x) {
+    return x + 1;
+}
+
+void main() {
+    foo = 10; // 'foo' is already defined as a function
+}

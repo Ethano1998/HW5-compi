@@ -1,0 +1,78 @@
+bool complexFunc(bool x, bool y) {
+    return x and y;
+}
+
+bool testFunc(int a, int b, int c, int d) {
+    bool res = (a < b and b <= c) and (c > d or d >= a) and (b != c);
+    return res;
+}
+
+void main() {
+    int x = 5;
+    int y = 10;
+    int z = 15;
+    int w = 20;
+    bool result = true;
+    
+    // Extremely nested relational operations with complex branching
+    if ((x < y and y <= z) and (z > w or w >= x) and 
+        (((x < w and w != y) or (y > z and z != x)) and 
+         ((z <= w and w > x) or (x >= y and y < z)))) {
+        
+        // More nested conditions inside
+        if (testFunc(x, y, z, w) and 
+            ((x < y and complexFunc(y > z, z < w)) or 
+             (z > w and complexFunc(x != y, y <= z)))) {
+            
+            // Even more nesting
+            while ((x < w and w > y) and (y < z or z >= x)) {
+                if (x > 0 and (y < z or (z <= w and w != x))) {
+                    x = x + 1;
+                    if (x >= y or (y < z and z != w)) {
+                        continue;
+                    }
+                } else {
+                    if ((x < y and y != z) or (z > w and w <= x)) {
+                        break;
+                    }
+                }
+                
+                // Mix of relational ops and function calls
+                bool temp1 = complexFunc(x < y, y <= z);
+                bool temp2 = complexFunc(z > w, w >= x);
+                bool temp3 = temp1 and temp2 and (x != y or y < z);
+                
+                if (temp3 and testFunc(w, x, y, z)) {
+                    if ((w > x and x < y) or (y >= z and z != w)) {
+                        printi(x);
+                    }
+                }
+                
+                if (x > 25) {
+                    break;
+                }
+            }
+            printi(1);
+        } else {
+            printi(2);
+        }
+    } else {
+        if (testFunc(w, z, y, x) and 
+            ((w < x and y > z) or (x <= y and z >= w))) {
+            printi(3);
+        } else {
+            printi(4);
+        }
+    }
+    
+    // Final complex condition
+    bool finalTest = (x < y and y <= z and z > w) or
+                    (w >= x and x != y and y < z) or
+                    (z <= w and w > x and x >= y);
+                    
+    if (finalTest and testFunc(x, y, z, w)) {
+        printi(5);
+    } else {
+        printi(6);
+    }
+}

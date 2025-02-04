@@ -1,0 +1,49 @@
+void main() {
+  int a = 3 / 1;
+  print("Hello world!");
+ 
+  while (a > 0) {
+    int b = a + 1;
+    if (printDownTimesTen(b) != 0) {
+      print("Something's wrong, we not too low (should have exited with 0!)");
+      return;
+    }
+    printi(a);
+    a = a - 1;
+  }
+  if (a != 0) {
+     print("Loop should have decreased 'a' down to zero!");
+     return;
+  }
+  bool annoyingCond = true or ((3 / 0) < 0);
+  if (
+    annoyingCond and
+    (true or ((3 / 0) < 0)) and
+    (((false and ((3 / 0) > 0))) or true)
+  ) {
+    print("Just making sure boolean are short circuited");
+  }
+ 
+  print("Goodbye world! (proceeding to divide by zero)");
+  printi(1 / a);
+  print("Should have crashed!");
+}
+ 
+int printDownTimesTen(int b) {
+    bool cond = true;
+    int i = b;
+    while (
+      not not not not (
+        cond and 
+        (not not cond) and
+        (i > 0) and
+        not not not not (i > 0)
+      )
+      ) {
+      int c = i * 10;
+      printi(c);
+      i = i - 1;
+      cond = i > 0;
+    }
+    return i;
+}

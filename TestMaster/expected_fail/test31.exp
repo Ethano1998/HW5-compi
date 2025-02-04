@@ -1,0 +1,55 @@
+---begin global scope---
+print (string) -> void
+printi (int) -> void
+main () -> void
+  ---begin scope---
+    ---begin scope---
+    x0 int 0
+    ---end scope---
+    ---begin scope---
+    x1 int 0
+    ---end scope---
+    ---begin scope---
+    x2 int 0
+    ---end scope---
+    ---begin scope---
+    x3 int 0
+    ---end scope---
+    ---begin scope---
+    x4 int 0
+    ---end scope---
+    ---begin scope---
+    x5 int 0
+    ---end scope---
+    ---begin scope---
+    x6 int 0
+    ---end scope---
+    ---begin scope---
+    x7 int 0
+    ---end scope---
+    ---begin scope---
+    x8 int 0
+    ---end scope---
+    ---begin scope---
+    x9 int 0
+    ---end scope---
+    ---begin scope---
+    x10 int 0
+    ---end scope---
+    ---begin scope---
+    x11 int 0
+    ---end scope---
+    ---begin scope---
+    x12 int 0
+    ---end scope---
+    ---begin scope---
+    x13 int 0
+    ---end scope---
+    ---begin scope---
+    x14 int 0
+    ---end scope---
+    ---begin scope---
+    x15 int 0
+    ---end scope---
+  ---end scope---
+---end global scope---

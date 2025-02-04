@@ -1,0 +1,18 @@
+void main ()
+{
+    int x = 2;
+    if(5 == 0)
+    {
+        x = 3;
+    }
+    else if(4 <9 )
+    {
+        x = 2;
+    }
+    else
+    {
+        x = 0;
+    }
+    printi(x);
+    return;
+}

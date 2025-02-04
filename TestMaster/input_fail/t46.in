@@ -1,0 +1,7 @@
+void main() {
+	print("ok");
+}
+void foo(int x) {
+    printi(x); // Valid
+    printi(y); // Error: Variable y not defined
+}

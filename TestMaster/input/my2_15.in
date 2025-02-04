@@ -1,0 +1,12 @@
+void main() {
+    byte b1 = 100b;
+    byte b2 = 50b;
+    byte sum = (byte)(b1 + b2);
+    byte diff = (byte)(b1 - b2);
+    byte prod = (byte)(b1 * b2);
+    byte div = (byte)(b1 / b2);
+    printi(sum);
+    printi(diff);
+    printi(prod);
+    printi(div);
+}

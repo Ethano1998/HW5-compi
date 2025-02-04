@@ -1,0 +1,6 @@
+void main() {
+    byte b;
+    b = 300b;
+    printi(b);
+}
+

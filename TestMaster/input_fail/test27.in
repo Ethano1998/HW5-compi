@@ -1,0 +1,7 @@
+void main() {
+	
+	if (true){int q;}
+	int x
+	if (true){int q;}
+
+}

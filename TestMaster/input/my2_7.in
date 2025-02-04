@@ -1,0 +1,20 @@
+int aFunc() {
+    print("A");
+    return 1;
+}
+
+int bFunc() {
+    print("B");
+    return 2;
+}
+
+int sum(int x, int y) {
+    return x + y;
+}
+
+void main() {
+    int result;
+    result = sum(aFunc(), bFunc());
+    printi(result);
+}
+

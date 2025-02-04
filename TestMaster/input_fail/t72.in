@@ -1,0 +1,3 @@
+void main() {
+    int x = true; // Cannot assign boolean to int
+}

@@ -1,0 +1,13 @@
+// Test 13: Recursive Function
+int fact(int n) {
+    if (n < 2) {
+         return 1;
+    } else {
+         return n * fact(n - 1);
+    }
+}
+
+void main() {
+    int f = fact(5);
+    printi(f);
+}

@@ -1,0 +1,4 @@
+void main() {
+    int a = 10;
+    int a = 20; // Redeclaration in the same scope
+}

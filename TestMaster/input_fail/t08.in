@@ -1,0 +1,11 @@
+void main() {
+	int x = 3;
+}
+
+int try() {
+	print("hi");
+}
+
+void try() {
+	print("bye");
+}

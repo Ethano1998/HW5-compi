@@ -1,0 +1,16 @@
+int add(int x, int y) {
+    return x + y;
+}
+
+int add(int a, int b) { // Redeclaration in the same scope
+    return a - b;
+}
+
+void main() {
+    int x = 5;
+}
+
+
+void try() {
+    int x = 5;
+}

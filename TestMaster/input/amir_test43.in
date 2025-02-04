@@ -1,0 +1,9 @@
+void main() {
+	int u = 0;
+	byte v = u;
+	int var1 = v;
+	byte var2;
+	print("if you see this, the program is broken you can't put a int in a byte variable");
+	print("if you see this, the program is broken you can't put a int in a byte variable");
+
+}

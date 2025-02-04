@@ -1,0 +1,19 @@
+// Test 9: Function Call Order and Argument Evaluation
+int foo() {
+    print("foo");
+    return 1;
+}
+
+int bar() {
+    print("bar");
+    return 2;
+}
+
+int baz(int a, int b) {
+    return a + b;
+}
+
+void main() {
+    int c = baz(foo(), bar());
+    printi(c);
+}

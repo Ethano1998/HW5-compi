@@ -1,0 +1,12 @@
+int foo() {
+    int a;
+    a = 10;
+    // No return statement here
+}
+
+void main() {
+    int x;
+    x = foo();
+    printi(x);
+}
+

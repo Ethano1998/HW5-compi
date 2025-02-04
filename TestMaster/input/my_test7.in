@@ -1,0 +1,15 @@
+// Test 7: While Loop with Break and Continue
+void main() {
+    int i = 0;
+    while (i < 5) {
+        if (i == 3) {
+            i = i + 1;
+            continue;
+        }
+        if (i == 4) {
+            break;
+        }
+        printi(i);
+        i = i + 1;
+    }
+}

@@ -1,0 +1,4 @@
+void main() {
+    string s = "Hello"; // Error: String is an invalid type
+    int x = s; 
+}

@@ -1,0 +1,5 @@
+// Test 20: Mixed Print Functions (String and Integer)
+void main() {
+    print("This is a test string.");
+    printi(12345);
+}

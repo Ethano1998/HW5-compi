@@ -1,0 +1,4 @@
+void main() {
+    int x = 5;
+    int y = undefinedFunc(x); // 'undefinedFunc' is not defined
+}

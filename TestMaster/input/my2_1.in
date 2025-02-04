@@ -1,0 +1,14 @@
+int check(int x) {
+    if (x > 0) {
+	printi(1);
+        return 1;
+    } else {
+	printi(0);
+        return 0;
+    }
+}
+
+void main() {
+	int x = 2;
+	check(x);
+}

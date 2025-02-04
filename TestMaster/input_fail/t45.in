@@ -1,0 +1,7 @@
+int foo(int x, byte y) {
+    return x + y;
+}
+
+void main() {
+    foo(10, 256b); // Error: Byte literal too large
+}

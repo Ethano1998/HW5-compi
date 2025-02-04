@@ -124,6 +124,10 @@ void SemanticVisitor::visit(ast::ID &node){
             //verification si la function est declaree
             if(!(functionTable->findEntry(node.value)))
                 output::errorUndefFunc(node.line,node.value);
+            else{
+                auto get_type = std::dynamic_pointer_cast<FuncSymbolEntry>(functionTable->findEntry(node.value))->returnType;
+                node.type = toBuiltInType(get_type);
+            }
             break;
         }
         case Context::REFERENCE_VAR :{

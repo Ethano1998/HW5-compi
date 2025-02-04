@@ -1,0 +1,1006 @@
+// dummy0 start 
+void dummy0() {
+    int a;
+    a = 0; // assign 0 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy1 start
+void dummy1() {
+    int a;
+    a = 1; // assign 1 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy2 start
+void dummy2() {
+    int a;
+    a = 2; // assign 2 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy3 start
+void dummy3() {
+    int a;
+    a = 3; // assign 3 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy4 start
+void dummy4() {
+    int a;
+    a = 4; // assign 4 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy5 start
+void dummy5() {
+    int a;
+    a = 5; // assign 5 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy6 start
+void dummy6() {
+    int a;
+    a = 6; // assign 6 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy7 start
+void dummy7() {
+    int a;
+    a = 7; // assign 7 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy8 start
+void dummy8() {
+    int a;
+    a = 8; // assign 8 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy9 start
+void dummy9() {
+    int a;
+    a = 9; // assign 9 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy10 start
+void dummy10() {
+    int a;
+    a = 10; // assign 10 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy11 start
+void dummy11() {
+    int a;
+    a = 11; // assign 11 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy12 start
+void dummy12() {
+    int a;
+    a = 12; // assign 12 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy13 start
+void dummy13() {
+    int a;
+    a = 13; // assign 13 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy14 start
+void dummy14() {
+    int a;
+    a = 14; // assign 14 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy15 start
+void dummy15() {
+    int a;
+    a = 15; // assign 15 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy16 start
+void dummy16() {
+    int a;
+    a = 16; // assign 16 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy17 start
+void dummy17() {
+    int a;
+    a = 17; // assign 17 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy18 start
+void dummy18() {
+    int a;
+    a = 18; // assign 18 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy19 start
+void dummy19() {
+    int a;
+    a = 19; // assign 19 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy20 start
+void dummy20() {
+    int a;
+    a = 20; // assign 20 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy21 start
+void dummy21() {
+    int a;
+    a = 21; // assign 21 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy22 start
+void dummy22() {
+    int a;
+    a = 22; // assign 22 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy23 start
+void dummy23() {
+    int a;
+    a = 23; // assign 23 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy24 start
+void dummy24() {
+    int a;
+    a = 24; // assign 24 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy25 start
+void dummy25() {
+    int a;
+    a = 25; // assign 25 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy26 start
+void dummy26() {
+    int a;
+    a = 26; // assign 26 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy27 start
+void dummy27() {
+    int a;
+    a = 27; // assign 27 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy28 start
+void dummy28() {
+    int a;
+    a = 28; // assign 28 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy29 start
+void dummy29() {
+    int a;
+    a = 29; // assign 29 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy30 start
+void dummy30() {
+    int a;
+    a = 30; // assign 30 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy31 start
+void dummy31() {
+    int a;
+    a = 31; // assign 31 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy32 start
+void dummy32() {
+    int a;
+    a = 32; // assign 32 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy33 start
+void dummy33() {
+    int a;
+    a = 33; // assign 33 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy34 start
+void dummy34() {
+    int a;
+    a = 34; // assign 34 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy35 start
+void dummy35() {
+    int a;
+    a = 35; // assign 35 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy36 start
+void dummy36() {
+    int a;
+    a = 36; // assign 36 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy37 start
+void dummy37() {
+    int a;
+    a = 37; // assign 37 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy38 start
+void dummy38() {
+    int a;
+    a = 38; // assign 38 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy39 start
+void dummy39() {
+    int a;
+    a = 39; // assign 39 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy40 start
+void dummy40() {
+    int a;
+    a = 40; // assign 40 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy41 start
+void dummy41() {
+    int a;
+    a = 41; // assign 41 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy42 start
+void dummy42() {
+    int a;
+    a = 42; // assign 42 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy43 start
+void dummy43() {
+    int a;
+    a = 43; // assign 43 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy44 start
+void dummy44() {
+    int a;
+    a = 44; // assign 44 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy45 start
+void dummy45() {
+    int a;
+    a = 45; // assign 45 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy46 start
+void dummy46() {
+    int a;
+    a = 46; // assign 46 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy47 start
+void dummy47() {
+    int a;
+    a = 47; // assign 47 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+// dummy48 start
+void dummy48() {
+    int a;
+    a = 48; // assign 48 to a
+    int i;
+    i = 0;
+    while (i < 20) {
+        a = a + i;
+        i = i + 1;
+    }
+    if (a > 100) {
+        printi(a);
+    } else {
+        print("low");
+    }
+    a = a + 1;
+    a = a - 1;
+    a = a * 1;
+    a = a / 1;
+}
+
+// main function start
+void main() {
+    dummy0(); dummy1(); dummy2(); dummy3(); dummy4();
+    dummy5(); dummy6(); dummy7(); dummy8(); dummy9();
+    dummy10(); dummy11(); dummy12(); dummy13(); dummy14();
+    dummy15(); dummy16(); dummy17(); dummy18(); dummy19();
+    dummy20(); dummy21(); dummy22(); dummy23(); dummy24();
+    dummy25(); dummy26(); dummy27(); dummy28(); dummy29();
+    dummy30(); dummy31(); dummy32(); dummy33(); dummy34();
+    dummy35(); dummy36(); dummy37(); dummy38(); dummy39();
+    dummy40(); dummy41(); dummy42(); dummy43(); dummy44();
+    dummy45(); dummy46(); dummy47(); dummy48();
+    print("Stress Test Completed");
+    // Padding line 1 for main
+    // Padding line 2 for main
+    // Padding line 3 for main
+    // Padding line 4 for main
+    // Padding line 5 for main
+    // Padding line 6 for main
+    // Padding line 7 for main
+    // Padding line 8 for main
+    // Padding line 9 for main
+    // Padding line 10 for main
+}
+

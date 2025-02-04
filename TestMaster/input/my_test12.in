@@ -1,0 +1,9 @@
+// Test 12: Nested Scopes and Variable Shadowing
+void main() {
+    int x = 10;
+    {
+         int x = 20;
+         printi(x);  // Should print 20
+    }
+    printi(x);      // Should print 10
+}

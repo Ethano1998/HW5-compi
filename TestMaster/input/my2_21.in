@@ -1,0 +1,4 @@
+void main() {
+    // Overflow scenarios
+    byte b = (byte)(255b + 2b);
+}

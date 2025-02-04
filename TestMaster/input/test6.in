@@ -1,0 +1,14 @@
+void main()
+{
+    int i = 0;
+    int j = 10;
+    while(i<j)
+    {
+        i = i + 1;
+        j = j - 1;
+        int x = 6;
+        print("~");
+    }
+    printi(i);
+    printi(j);
+}

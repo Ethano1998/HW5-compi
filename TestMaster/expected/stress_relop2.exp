@@ -1,0 +1,16 @@
+expr1 is false
+expr2 is true
+expr3 is true
+loopA
+expr4 is false
+expr5 is true
+loopB
+loopB
+loopB
+expr6 is false
+expr7 is true
+expr8 is true
+loopC
+loopC
+expr9 is true
+expr10 is false

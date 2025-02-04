@@ -1,0 +1,8 @@
+// Test 5b: Boolean Expression – Logical AND
+void main() {
+    if (true and false) {
+         print("AND true");
+    } else {
+         print("AND false");
+    }
+}

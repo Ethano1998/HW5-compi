@@ -1,0 +1,4 @@
+void main() {
+  printi(3 / 0b);
+  print("Should have failed!");
+}

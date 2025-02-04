@@ -1,0 +1,8 @@
+void main()
+{
+    int i = 3;
+    i = i + 8;
+    int x = 2;
+    i = x * i;
+    printi(i);
+}

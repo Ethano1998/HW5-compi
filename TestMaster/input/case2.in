@@ -1,0 +1,3 @@
+void main() {
+  byte b = 3b / 0b;
+}

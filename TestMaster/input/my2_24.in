@@ -1,0 +1,12 @@
+void recursiveWithLocals(int depth) {
+    int a = depth;
+    byte b = (byte)depth;
+    if (depth > 0) {
+        recursiveWithLocals(depth - 1);
+    }
+    printi(a);
+}
+
+void main() {
+    recursiveWithLocals(60);
+}

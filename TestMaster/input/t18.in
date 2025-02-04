@@ -1,0 +1,17 @@
+byte intify(int b)
+{
+    print("gimmie gimmie now");
+    return ((byte)b);
+}
+
+void main ()
+{
+    byte x = intify(12);
+    int a = 8b;
+    byte y = intify(a);
+    print("zuzuzuzuzu");
+    if((byte)(3b + 2b) < x * y)
+    {
+        print("Ijen naega neoreul jaba now, imma savage");
+    }
+}

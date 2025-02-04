@@ -1,0 +1,198 @@
+---begin global scope---
+print (string) -> void
+printi (int) -> void
+displayBanner () -> void
+nestedArithmeticAndRelational (int,int,byte,bool) -> int
+testScopes (int,byte,bool) -> void
+longLogicalExpression (bool,bool,bool,bool,bool) -> bool
+recursiveFibonacci (int) -> int
+calculateWithManyParameters (int,byte,bool,int,byte,bool) -> int
+nestedWhileLoopTest () -> void
+testDeeplyNestedIfElse (int,int,byte) -> bool
+largeCalculations () -> void
+masterTestSuite () -> void
+testConversions () -> void
+main () -> void
+  ---begin scope---
+  ---end scope---
+  ---begin scope---
+  a int -1
+  b int -2
+  c byte -3
+  flag bool -4
+  result int 0
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+  ---end scope---
+  ---begin scope---
+  x int -1
+  y byte -2
+  condition bool -3
+    ---begin scope---
+    shadow int 0
+      ---begin scope---
+        ---begin scope---
+          ---begin scope---
+            ---begin scope---
+              ---begin scope---
+              shadow1 byte 1
+              ---end scope---
+            ---end scope---
+          ---end scope---
+          ---begin scope---
+            ---begin scope---
+            ---end scope---
+          ---end scope---
+        ---end scope---
+      ---end scope---
+    ---end scope---
+  ---end scope---
+  ---begin scope---
+  a bool -1
+  b bool -2
+  c bool -3
+  d bool -4
+  e bool -5
+  ---end scope---
+  ---begin scope---
+  n int -1
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+  ---end scope---
+  ---begin scope---
+  a int -1
+  b byte -2
+  c bool -3
+  d int -4
+  e byte -5
+  f bool -6
+  result int 0
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+  ---end scope---
+  ---begin scope---
+  i int 0
+    ---begin scope---
+      ---begin scope---
+      j int 1
+        ---begin scope---
+          ---begin scope---
+          k byte 2
+            ---begin scope---
+              ---begin scope---
+                ---begin scope---
+                ---end scope---
+              ---end scope---
+              ---begin scope---
+                ---begin scope---
+                ---end scope---
+              ---end scope---
+            ---end scope---
+          ---end scope---
+        ---end scope---
+      ---end scope---
+    ---end scope---
+  ---end scope---
+  ---begin scope---
+  x int -1
+  y int -2
+  z byte -3
+    ---begin scope---
+      ---begin scope---
+        ---begin scope---
+          ---begin scope---
+            ---begin scope---
+              ---begin scope---
+              ---end scope---
+            ---end scope---
+            ---begin scope---
+              ---begin scope---
+                ---begin scope---
+                  ---begin scope---
+                  ---end scope---
+                ---end scope---
+                ---begin scope---
+                  ---begin scope---
+                  ---end scope---
+                ---end scope---
+              ---end scope---
+            ---end scope---
+          ---end scope---
+        ---end scope---
+        ---begin scope---
+          ---begin scope---
+          ---end scope---
+        ---end scope---
+      ---end scope---
+    ---end scope---
+    ---begin scope---
+      ---begin scope---
+        ---begin scope---
+          ---begin scope---
+          ---end scope---
+        ---end scope---
+        ---begin scope---
+          ---begin scope---
+            ---begin scope---
+              ---begin scope---
+              ---end scope---
+            ---end scope---
+          ---end scope---
+        ---end scope---
+      ---end scope---
+    ---end scope---
+  ---end scope---
+  ---begin scope---
+  a int 0
+  b byte 1
+  result int 2
+  ---end scope---
+  ---begin scope---
+  arithResult int 0
+  logicalResult bool 1
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+  fibResult int 2
+  paramResult int 3
+  nestedIfResult bool 4
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+    ---begin scope---
+      ---begin scope---
+      ---end scope---
+    ---end scope---
+  ---end scope---
+  ---begin scope---
+  small byte 0
+  large int 1
+  mixed int 2
+  ---end scope---
+  ---begin scope---
+  ---end scope---
+---end global scope---

@@ -13,7 +13,9 @@ void LlvmVisitor::visit(ast::NumB &node){
 }
 
 void LlvmVisitor::visit(ast::String &node){
-        node.var = node.value;
+        std::string var_str = code_buffer.emitString(node.value);
+        node.var = code_buffer.freshVar();
+        code_buffer.emit(node.var + " = getelementptr [" + std::to_string(node.value.length() + 1) + " x i8], [" + std::to_string(node.value.length() + 1) + " x i8]* " + var_str + ", i32 0, i32 0");        
 }
 
 void LlvmVisitor::visit(ast::Bool &node){
@@ -53,12 +55,27 @@ void LlvmVisitor::visit(ast::BinOp &node){
         break;
     case ast::BinOpType::MUL :
         code_buffer.emit(node.var + " = mul i32 " + node.left->var + ", " + node.right->var);
-        break;
-    case ast::BinOpType::DIV : 
-        code_buffer.emit(node.var + " = sdiv i32 " + node.left->var + ", " + node.right->var);
-        break;       
+        break;     
     default:
         break;
+    }
+    if(node.op == ast::BinOpType::DIV){
+        std::string reg_check = code_buffer.freshVar();
+        code_buffer.emit(reg_check + " = icmp eq i32 0, " + node.right->var);
+        std::string if_true_label = code_buffer.freshLabel();
+        std::string if_false_label = code_buffer.freshLabel();
+        std::string if_end_label = code_buffer.freshLabel();
+        code_buffer.emit("br i1 " + reg_check + ", label " + if_true_label + ", label " + if_false_label);
+        code_buffer.emitLabel(if_true_label);
+        std::string string_var = code_buffer.freshVar();
+        code_buffer.emit(string_var + " = getelementptr [23 x i8], [23 x i8]* @.str0, i32 0, i32 0");    
+        code_buffer.emit("call void @print(i8* " + string_var + ")");
+        code_buffer.emit("br label " + if_end_label);
+        code_buffer.emitLabel(if_false_label);
+        code_buffer.emit("br label " + if_end_label);
+        code_buffer.emitLabel(if_end_label);
+
+        code_buffer.emit(node.var + " = sdiv i32 " + node.left->var + ", " + node.right->var);
     }
 }
 
@@ -69,22 +86,22 @@ void LlvmVisitor::visit(ast::RelOp &node){
     switch (node.op)
     {
     case ast::RelOpType::EQ :
-        code_buffer.emit(node.var + " = icomp eq i32 " + node.left->var + ", " + node.right->var);
+        code_buffer.emit(node.var + " = icmp eq i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::GE :
-        code_buffer.emit(node.var + " = icomp sge i32 " + node.left->var + ", " + node.right->var);
+        code_buffer.emit(node.var + " = icmp sge i32 " + node.left->var + ", " + node.right->var);
         break;    
     case ast::RelOpType::GT :
-        code_buffer.emit(node.var + " = icomp sgt i32 " + node.left->var + ", " + node.right->var);
+        code_buffer.emit(node.var + " = icmp sgt i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::LE :
-        code_buffer.emit(node.var + " = icomp sle i32 " + node.left->var + ", " + node.right->var);
+        code_buffer.emit(node.var + " = icmp sle i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::LT :
-        code_buffer.emit(node.var + " = icomp slt i32 " + node.left->var + ", " + node.right->var);
+        code_buffer.emit(node.var + " = icmp slt i32 " + node.left->var + ", " + node.right->var);
         break;
     case ast::RelOpType::NE :
-        code_buffer.emit(node.var + " = icomp ne i32 " + node.left->var + ", " + node.right->var);
+        code_buffer.emit(node.var + " = icmp ne i32 " + node.left->var + ", " + node.right->var);
         break;        
     default:
         break;
@@ -201,7 +218,7 @@ void LlvmVisitor::visit(ast::Call &node){
     if(node.func_id->type == ast::BuiltInType::BOOL){
         code_buffer.emit(node.var + " = call i1 @" + node.func_id->value + "("+ arguments +")");
     }
-    else if(node.func_id->type == ast::BuiltInType::INT){
+    else if(node.func_id->type == ast::BuiltInType::INT || node.func_id->type == ast::BuiltInType::BYTE){
         code_buffer.emit(node.var + " = call i32 @" + node.func_id->value + "("+ arguments +")");
     }
     else{
@@ -214,14 +231,19 @@ void LlvmVisitor::visit(ast::ExpList &node){
         exp->accept(*this);
         if(exp->type == ast::BuiltInType::BOOL){
             node.args_list.push_back("i1 "+ exp->var +",");
-        }else{
+        }
+        else if(exp->type == ast::BuiltInType::STRING){
+            node.args_list.push_back("i8* "+ exp->var +",");
+        }
+        else{
             node.args_list.push_back("i32 "+ exp->var +",");
         }
     }
 }
 
 void LlvmVisitor::visit(ast::Return &node){
-    if(node.exp){
+    if(node.exp != nullptr){
+        node.exp->accept(*this);
         if(node.exp->type == ast::BuiltInType::BOOL){
             code_buffer.emit("ret i1 " + node.exp->var);
         }else{
@@ -269,6 +291,7 @@ void LlvmVisitor::visit(ast::While &node){
     exit_labels.push_back(whileExit);
     entry_labels.push_back(whileEntry);
 
+    code_buffer.emit("br label " + whileEntry);
     code_buffer.emitLabel(whileEntry);
     node.condition->accept(*this);
     code_buffer.emit("br i1 " + node.condition->var + ", label " + whileBody + ", label " + whileExit);
@@ -310,6 +333,7 @@ void LlvmVisitor::visit(ast::Funcs &node){
         code_buffer.emit(line);
     }
     file.close();
+    code_buffer.emitString("Error division by zero");
 
     for (auto &func : node.funcs) {
         func->accept(*this);

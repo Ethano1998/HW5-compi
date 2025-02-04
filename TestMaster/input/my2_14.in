@@ -1,0 +1,7 @@
+int func1(int x) { return x + 1; }
+int func2(int x) { return x * 2; }
+int func3(int x) { return x - 1; }
+
+void main() {
+    printi(func1(func2(func3(5))));
+}

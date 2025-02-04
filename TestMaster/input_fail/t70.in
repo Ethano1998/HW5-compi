@@ -1,0 +1,8 @@
+int add(int x, int y) {
+    return x + y;
+}
+
+void main() {
+    bool b = true;
+    int result = add(10, b); // Argument type mismatch
+}

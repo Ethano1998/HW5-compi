@@ -1,0 +1,3 @@
+void main() {
+//div by zero (constant)
+printi(9/0);}

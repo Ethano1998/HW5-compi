@@ -1,0 +1,29 @@
+void fuckme(int x, int y)
+{
+    int t = x * y;
+    t = t-1;
+    if(t == 5)
+    {
+        t = 0;
+    }
+}
+void fuckyou(int a , int b)
+{
+    int g = b -9;
+    a = g - 1;
+    while(b < 12)
+    {
+        b = b +5;
+    }
+}
+int fuckoff(int i , int k)
+{
+    return 5;
+}
+void main()
+{
+    fuckme(1,2);
+    fuckoff(3,4);
+    int x = fuckoff(6,7);
+    printi(0);
+}

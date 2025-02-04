@@ -1,0 +1,4 @@
+void main() {
+    int x;
+    int x; // Error: Variable already defined in the same scope
+}

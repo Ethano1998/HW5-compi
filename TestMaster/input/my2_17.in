@@ -1,0 +1,6 @@
+void main() {
+    byte b = 255b;
+    int i = 1000;
+    int result = b * i;  // Test byte-to-int promotion
+    printi(result);
+}

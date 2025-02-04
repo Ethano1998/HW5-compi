@@ -1,0 +1,7 @@
+// Test 2: Byte Arithmetic and Truncation
+void main() {
+    byte b1 = 200b;  // Byte literal (assume "200b" means 200 as a byte)
+    byte b2 = 100b;
+    int result = b1 + b2;  // 200 + 100 = 300, truncated to 300 mod 256 = 44
+    printi(result);
+}

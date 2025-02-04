@@ -1,0 +1,21 @@
+void main() {
+	while (true)
+	{
+	    int x = 4;
+	    byte y = 100b;
+	    if (x > y) print("ok");
+	    if (y < x) {
+	        print("bad");
+	        break;
+	    }
+	    int z;
+	    continue;
+	}
+	if (true) {
+	    bool x = true;
+	    bool y = false;
+	    if (y and x) x = (3 < 2) or (y and 5 >= 2b);
+	    else print("bad grade");
+	    continue;
+	}
+}

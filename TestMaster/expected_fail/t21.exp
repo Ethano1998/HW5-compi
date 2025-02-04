@@ -1,0 +1,14 @@
+---begin global scope---
+print (string) -> void
+printi (int) -> void
+main () -> void
+  ---begin scope---
+  x int 0
+  this byte 1
+  b int 2
+  sec byte 3
+  third byte 4
+  c int 5
+  d int 6
+  ---end scope---
+---end global scope---

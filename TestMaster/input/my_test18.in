@@ -1,0 +1,10 @@
+// Test 18: Function Parameters Not Counted Toward Local Limit
+int sum(int a, int b, int c) {
+    int s = a + b + c;
+    return s;
+}
+
+void main() {
+    int x = sum(1, 2, 3);
+    printi(x);
+}

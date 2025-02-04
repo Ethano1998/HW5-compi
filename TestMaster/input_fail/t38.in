@@ -1,0 +1,3 @@
+int main() { // Error: main must return void
+    return 0;
+}

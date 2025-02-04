@@ -1,0 +1,6 @@
+void main() {
+if (true and true and true and 1 < 2 and 2 < 3 and 3 < 4 and 4 <= 5 and 5 <= 5 and not false and true and true and true and not false and (1 + 2 <= 1 + 2 + 3 + 4 + 5 + 5 + 1))
+	print("ok");
+if (false or false and true and not false and false or not false and false or false or false and not false and (9+8+7+6+5+4<50)) {
+	print("should not print");
+}}
